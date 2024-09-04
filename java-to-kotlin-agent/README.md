@@ -2,58 +2,22 @@
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
-If you want to learn more about Quarkus, please visit its website: <https://quarkus.io/>.
+The result of this application is a command line utility that receives a path to a Java file and return its Kotlin equivalent
 
-## Running the application in dev mode
+### Requirements:
 
-You can run your application in dev mode that enables live coding using:
+* Maven 
+* Java JDK 21
+* Ollama (possibly with model gemma2:9b)
 
-```shell script
-./mvnw compile quarkus:dev
-```
+### Building
 
-> **_NOTE:_**  Quarkus now ships with a Dev UI, which is available in dev mode only at <http://localhost:8080/q/dev/>.
+Having Java JDK 21, just run `mvn clean install -Pnative`
 
-## Packaging and running the application
+### Running
 
-The application can be packaged using:
+Once built, you can run the executable `java-to-kotlin-agent` that can be found in `target` folder. Remeber to pass a path to a Java file as a parameter.
 
-```shell script
-./mvnw package
-```
+Example:
 
-It produces the `quarkus-run.jar` file in the `target/quarkus-app/` directory.
-Be aware that it’s not an _über-jar_ as the dependencies are copied into the `target/quarkus-app/lib/` directory.
-
-The application is now runnable using `java -jar target/quarkus-app/quarkus-run.jar`.
-
-If you want to build an _über-jar_, execute the following command:
-
-```shell script
-./mvnw package -Dquarkus.package.jar.type=uber-jar
-```
-
-The application, packaged as an _über-jar_, is now runnable using `java -jar target/*-runner.jar`.
-
-## Creating a native executable
-
-You can create a native executable using:
-
-```shell script
-./mvnw package -Dnative
-```
-
-Or, if you don't have GraalVM installed, you can run the native executable build in a container using:
-
-```shell script
-./mvnw package -Dnative -Dquarkus.native.container-build=true
-```
-
-You can then execute your native executable with: `./target/java-to-kotlin-agent-1.0.0-SNAPSHOT-runner`
-
-If you want to learn more about building native executables, please consult <https://quarkus.io/guides/maven-tooling>.
-
-## Related Guides
-
-- LangChain4j ([guide](https://docs.quarkiverse.io/quarkus-langchain4j/dev/index.html)): Provides the basic integration with LangChain4j
-- LangChain4j Ollama ([guide](https://docs.quarkiverse.io/quarkus-langchain4j/dev/index.html)): Provides the basic integration of Ollama with LangChain4j
+![image](https://github.com/user-attachments/assets/5e9575da-085a-4d8a-b6e2-ce182e256ea1)
