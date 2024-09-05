@@ -1,4 +1,4 @@
-# java-to-kotlin-agent
+# code-converter-agent
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
