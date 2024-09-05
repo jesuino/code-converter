@@ -1,10 +1,9 @@
-# java-to-kotlin
-A project to convert Java code to Kotlin.
+# Code Converter
+A project to convert Code from a language to another language
 
 It is composed of the following projects:
 
-* `java-to-kotlin-agent`: A Quarkus application that uses ollama to get a Java file and returns its Kotlin equivalent
-
+* `code-conveter-agent`: A Quarkus application that uses ollama to get a source code file and returns its Java (or selected language) equivalent
 
 TBD:
 
