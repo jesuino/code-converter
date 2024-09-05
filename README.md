@@ -8,5 +8,5 @@ It is composed of the following projects:
 TBD:
 
 * New project with an UI with preview and support to full projects
-* Support for transversing paths and generating the kotlin equivalent for any Java file encountered.
+* Support for transversing paths and generating code
 
