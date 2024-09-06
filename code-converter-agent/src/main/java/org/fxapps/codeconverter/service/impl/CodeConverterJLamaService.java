@@ -12,7 +12,7 @@ import jakarta.enterprise.context.ApplicationScoped;
 @ApplicationScoped
 public class CodeConverterJLamaService implements CodeConverterService {
 
-	private static final String MODEL_PATH = "google/codegemma-7b";
+	private static final String MODEL_PATH = "tjake/TinyLlama-1.1B-Chat-v1.0-Jlama-Q4";
 	private ChatLanguageModel model;
 
 	@PostConstruct
