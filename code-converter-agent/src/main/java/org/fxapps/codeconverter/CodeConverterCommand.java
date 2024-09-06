@@ -7,7 +7,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-import org.fxapps.codeconverter.service.CodeConverterService;
+import org.fxapps.codeconverter.service.impl.CodeConverterQuarkusService;
 import org.jboss.logging.Logger;
 
 import jakarta.inject.Inject;
@@ -21,8 +21,9 @@ public class CodeConverterCommand implements Runnable {
 	private static final Logger log = Logger.getLogger(CodeConverterCommand.class);
 
 	@Inject
-	CodeConverterService codeConverterService;
-
+	CodeConverterQuarkusService codeConverterService;
+	// For full inference on Java use the following
+	// CodeConverterJLamaService codeConverterService;
 	@Parameters(arity = "1", description = "Input file or URL")
 	String inputFile;
 
