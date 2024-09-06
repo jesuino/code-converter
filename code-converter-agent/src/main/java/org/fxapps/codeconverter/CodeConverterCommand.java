@@ -29,19 +29,29 @@ public class CodeConverterCommand implements Runnable {
 	@Option(names = { "-l", "--lang" }, description = "The target language", defaultValue = "Java")
 	String targetLanguage;
 
+	@Option(names = { "-t", "--tests" }, description = "Create unit tests for the target code")
+	boolean createTests;
+
 	@Override
 	public void run() {
 
 		String inputContent;
+		var result = "";
 		try {
 			inputContent = retrieveContent(inputFile);
-			log.info("Converting file to " + targetLanguage + "...");
-			var result = codeConverterService.convert(targetLanguage, inputContent);
-			System.out.println(result);
 		} catch (IOException e) {
 			log.error("Not able to load the input: " + e.getMessage());
 			log.debug(e);
+			return;
 		}
+		if (createTests) {
+			log.info("Creating tests for the provided file");
+			result = codeConverterService.createTests(inputContent);
+		} else {
+			log.info("Converting file to " + targetLanguage + "...");
+			result = codeConverterService.convert(targetLanguage, inputContent);
+		}
+		System.out.println(result);
 	}
 
 	private static String retrieveContent(String dest) throws IOException {
