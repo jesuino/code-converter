@@ -7,7 +7,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-import org.fxapps.codeconverter.service.impl.CodeConverterQuarkusService;
+import org.fxapps.codeconverter.service.impl.CodeConverterJLamaService;
 import org.jboss.logging.Logger;
 
 import jakarta.inject.Inject;
@@ -21,9 +21,9 @@ public class CodeConverterCommand implements Runnable {
 	private static final Logger log = Logger.getLogger(CodeConverterCommand.class);
 
 	@Inject
-	CodeConverterQuarkusService codeConverterService;
+	// CodeConverterQuarkusService codeConverterService;
 	// For full inference on Java use the following
-	// CodeConverterJLamaService codeConverterService;
+	CodeConverterJLamaService codeConverterService;
 	@Parameters(arity = "1", description = "Input file or URL")
 	String inputFile;
 
@@ -32,6 +32,9 @@ public class CodeConverterCommand implements Runnable {
 
 	@Option(names = { "-t", "--tests" }, description = "Create unit tests for the target code")
 	boolean createTests;
+
+	@Option(names = { "-e", "--explain" }, description = "Explain the provided code")
+	boolean explainCode;
 
 	@Override
 	public void run() {
@@ -48,6 +51,10 @@ public class CodeConverterCommand implements Runnable {
 		if (createTests) {
 			log.info("Creating tests for the provided file");
 			result = codeConverterService.createTests(inputContent);
+		}
+		if (explainCode) {
+			log.info("Generating code explanation");
+			result = codeConverterService.explainCode(inputContent);
 		} else {
 			log.info("Converting file to " + targetLanguage + "...");
 			result = codeConverterService.convert(targetLanguage, inputContent);

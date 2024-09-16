@@ -19,4 +19,8 @@ public interface CodeConverterQuarkusService extends CodeConverterService {
 	@UserMessage(CODE_TEST_USER_MESSAGE)
 	String createTests(String input);
 
+	@SystemMessage(CODE_EXPLAIN_SYSTEM_MESSAGE)
+	@UserMessage(CODE_EXPLAIN_USER_MESSAGE)
+	String explainCode(String input);
+
 }

@@ -28,6 +28,17 @@ public interface CodeConverterService {
 			   Return only code without additional comments.
 			""";
 
+	public static final String CODE_EXPLAIN_SYSTEM_MESSAGE = """
+			You are a Senior developer that is responsible to train a new intern.
+			Explain the provided code using simple terms and always suugesting best practices.
+			""";
+	public static final String CODE_EXPLAIN_USER_MESSAGE = """
+			    Explain the following code
+			    ```
+			    {input}
+			    ```
+			""";
+
 	/**
 	 * Receives a code from any programming language and convert to another language
 	 * specific by target.
@@ -46,5 +57,7 @@ public interface CodeConverterService {
 	 * @return Unit tests for the given code
 	 */
 	String createTests(String input);
+
+	String explainCode(String input);
 
 }
