@@ -16,7 +16,7 @@ public class CodeConverterJLamaService implements CodeConverterService {
 	private static final String MODEL_PATH = "tjake/Yi-Coder-1.5B-Chat-Jlama";
 	private ChatLanguageModel model;
 
-	@ConfigProperty(name = "huggingfaces.token")
+	@ConfigProperty(name = "huggingfaces.token", defaultValue = "")
 	String huggingFacestoken;
 
 	@PostConstruct

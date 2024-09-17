@@ -16,10 +16,10 @@
 		<quarkus.platform.group-id>io.quarkus.platform</quarkus.platform.group-id>
 		<quarkus.platform.version>3.14.2</quarkus.platform.version>
 		<skipITs>true</skipITs>
-		<jvm.args>--enable-native-access=ALL-UNNAMED --enable-preview</jvm.args>
+		<jvm.args> --add-modules=jdk.incubator.vector --enable-native-access=ALL-UNNAMED --enable-preview</jvm.args>
 		<surefire-plugin.version>3.3.1</surefire-plugin.version>
 		<os.detected.classifier></os.detected.classifier>
-		<jlama.version>0.4.0</jlama.version>
+		<jlama.version>0.4.1</jlama.version>
 	</properties>
 
 	<dependencyManagement>
